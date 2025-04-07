@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch History | Vidya</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .history-item {
+      transition: all 0.2s ease;
+    }
+    .history-item:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <nav class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/dashboard.html" class="text-xl font-bold text-indigo-600">Vidya</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="/dashboard.html" class="text-gray-600 hover:text-indigo-600">
+            <i class="fas fa-home"></i>
+          </a>
+          <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center">
+            <i class="fas fa-user text-indigo-600"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-2xl font-bold text-gray-900">Your Watch History</h1>
+      <div class="text-sm text-gray-500" id="total-points">
+        <i class="fas fa-coins text-yellow-500 mr-1"></i>
+        <span>0</span> points earned
+      </div>
+    </div>
+
+    <div id="history-list" class="space-y-4">
+      <!-- History items will be loaded here -->
+      <div class="text-center py-12 text-gray-500" id="loading-message">
+        <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+        <p>Loading your watch history...</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const response = await fetch('/api/vod/history');
+        const history = await response.json();
+        
+        const historyList = document.getElementById('history-list');
+        const loadingMessage = document.getElementById('loading-message');
+        
+        if (history.length === 0) {
+          loadingMessage.innerHTML = `
+            <i class="fas fa-history text-2xl mb-2"></i>
+            <p>No watch history yet</p>
+            <a href="/dashboard.html" class="mt-4 inline-block text-indigo-600 hover:text-indigo-800">
+              Explore recommended content
+            </a>
+          `;
+          return;
+        }
+
+        loadingMessage.remove();
+        
+        let totalPoints = 0;
+        history.forEach(item => {
+          totalPoints += item.pointsEarned || 0;
+          
+          const historyItem = document.createElement('div');
+          historyItem.className = 'history-item bg-white p-4 rounded-lg shadow-sm hover:shadow-md';
+          historyItem.innerHTML = `
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-24 h-16 bg-gray-200 rounded overflow-hidden">
+                <img src="${item.contentId.thumbnail}" alt="${item.contentId.title}" class="w-full h-full object-cover">
+              </div>
+              <div class="ml-4 flex-1">
+                <div class="flex justify-between">
+                  <h3 class="font-medium text-gray-900">${item.contentId.title}</h3>
+                  <span class="text-sm text-gray-500">
+                    ${new Date(item.completedAt).toLocaleDateString()}
+                  </span>
+                </div>
+                <p class="text-sm text-gray-600 mt-1 line-clamp-1">${item.contentId.description}</p>
+                <div class="flex justify-between items-center mt-2">
+                  <div class="flex space-x-2">
+                    <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded-full">
+                      ${item.contentId.duration} min
+                    </span>
+                    <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full">
+                      +${item.pointsEarned} pts
+                    </span>
+                  </div>
+                  <a href="/player.html?id=${item.contentId._id}" class="text-sm text-indigo-600 hover:text-indigo-800">
+                    Watch again
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+          historyList.appendChild(historyItem);
+        });
+
+        // Update total points
+        document.querySelector('#total-points span').textContent = totalPoints;
+      } catch (error) {
+        console.error('Error loading watch history:', error);
+        document.getElementById('loading-message').innerHTML = `
+          <i class="fas fa-exclamation-triangle text-red-500 text-2xl mb-2"></i>
+          <p>Failed to load watch history</p>
+          <button onclick="window.location.reload()" class="mt-4 text-sm text-indigo-600 hover:text-indigo-800">
+            <i class="fas fa-sync-alt mr-1"></i> Try again
+          </button>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>
