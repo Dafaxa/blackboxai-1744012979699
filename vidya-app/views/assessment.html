@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personality Assessment | Vidya</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .progress-bar {
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <nav class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <span class="text-xl font-bold text-indigo-600">Vidya</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-white p-8 rounded-xl shadow-md">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Personality Assessment</h1>
+      <p class="text-gray-600 mb-8">Complete this assessment to discover your ideal learning path</p>
+      
+      <div class="mb-6">
+        <div class="flex justify-between mb-1">
+          <span class="text-sm font-medium text-indigo-600">Progress</span>
+          <span class="text-sm text-gray-500" id="progress-text">0/5</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+          <div class="bg-indigo-600 h-2.5 rounded-full progress-bar" id="progress-bar" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <form id="assessment-form">
+        <div id="questions-container">
+          <!-- Questions will be dynamically inserted here -->
+        </div>
+
+        <div class="flex justify-between mt-8">
+          <button type="button" id="prev-btn" class="hidden bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300">
+            Previous
+          </button>
+          <button type="button" id="next-btn" class="ml-auto bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700">
+            Next
+          </button>
+          <button type="submit" id="submit-btn" class="hidden bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700">
+            Submit Assessment
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Assessment state
+    let currentQuestion = 0;
+    const answers = {};
+    let questions = [];
+
+    // DOM elements
+    const questionsContainer = document.getElementById('questions-container');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+    const assessmentForm = document.getElementById('assessment-form');
+
+    // Fetch questions from backend
+    async function loadQuestions() {
+      try {
+        const response = await fetch('/api/assessment/questions');
+        const data = await response.json();
+        questions = data.questions;
+        renderQuestion();
+      } catch (error) {
+        console.error('Failed to load questions:', error);
+        questionsContainer.innerHTML = `
+          <div class="text-red-500">
+            Failed to load assessment questions. Please try again later.
+          </div>
+        `;
+      }
+    }
+
+    // Render current question
+    function renderQuestion() {
+      const question = questions[currentQuestion];
+      let html = `
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-4">${question.text}</h3>
+          <div class="space-y-3">
+      `;
+
+      question.options.forEach((option, index) => {
+        html += `
+          <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="q${question.id}" value="${option.value}" 
+                   class="h-4 w-4 text-indigo-600 focus:ring-indigo-500" 
+                   ${answers[question.id] === option.value ? 'checked' : ''}>
+            <span class="ml-3">${option.text}</span>
+          </label>
+        `;
+      });
+
+      html += `</div></div>`;
+      questionsContainer.innerHTML = html;
+
+      // Update progress
+      const progress = ((currentQuestion + 1) / questions.length) * 100;
+      progressBar.style.width = `${progress}%`;
+      progressText.textContent = `${currentQuestion + 1}/${questions.length}`;
+
+      // Update button visibility
+      prevBtn.classList.toggle('hidden', currentQuestion === 0);
+      nextBtn.classList.toggle('hidden', currentQuestion === questions.length - 1);
+      submitBtn.classList.toggle('hidden', currentQuestion !== questions.length - 1);
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', () => {
+      saveAnswer();
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      saveAnswer();
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+      }
+    });
+
+    // Save current answer
+    function saveAnswer() {
+      const question = questions[currentQuestion];
+      const selectedOption = document.querySelector(`input[name="q${question.id}"]:checked`);
+      if (selectedOption) {
+        answers[question.id] = parseInt(selectedOption.value);
+      }
+    }
+
+    // Handle form submission
+    assessmentForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      saveAnswer();
+      
+      try {
+        const response = await fetch('/api/assessment/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: 'current-user-id', // Would be set after auth implementation
+            answers
+          })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          // Redirect to dashboard with results
+          window.location.href = `/dashboard?type=${result.personalityType}&points=${result.pointsAwarded}`;
+        } else {
+          alert('Submission failed: ' + (result.error || 'Unknown error'));
+        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        alert('Failed to submit assessment. Please try again.');
+      }
+    });
+
+    // Initialize assessment
+    loadQuestions();
+  </script>
+</body>
+</html>
