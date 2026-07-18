@@ -9,8 +9,9 @@ export default function Hero() {
     <section id="top" className="relative overflow-hidden">
       {/* Abstract signal motif — pure CSS/SVG, no stock imagery */}
       <div aria-hidden="true" className="absolute inset-0">
+        <div className="hero-glow absolute inset-0" />
         <svg
-          className="absolute -right-24 top-10 h-[560px] w-[560px] opacity-[0.07]"
+          className="absolute -right-24 top-10 h-[560px] w-[560px] opacity-[0.18]"
           viewBox="0 0 400 400"
           fill="none"
         >
@@ -20,12 +21,12 @@ export default function Hero() {
               cx="200"
               cy="200"
               r={40 + i * 22}
-              stroke="#2fbf71"
+              stroke="#10b981"
               strokeWidth="1"
             />
           ))}
-          <line x1="0" y1="200" x2="400" y2="200" stroke="#2fbf71" strokeWidth="1" />
-          <line x1="200" y1="0" x2="200" y2="400" stroke="#2fbf71" strokeWidth="1" />
+          <line x1="0" y1="200" x2="400" y2="200" stroke="#10b981" strokeWidth="1" />
+          <line x1="200" y1="0" x2="200" y2="400" stroke="#10b981" strokeWidth="1" />
         </svg>
       </div>
 

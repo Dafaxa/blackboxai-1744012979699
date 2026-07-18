@@ -16,8 +16,8 @@ export default function OgImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#0b0f0e",
-          color: "#e8edeb",
+          background: "#ffffff",
+          color: "#0d1a15",
           fontFamily: "sans-serif",
         }}
       >
@@ -25,14 +25,14 @@ export default function OgImage() {
           style={{
             width: 64,
             height: 6,
-            background: "#2fbf71",
+            background: "#10b981",
             marginBottom: 40,
           }}
         />
         <div style={{ fontSize: 64, fontWeight: 700, lineHeight: 1.1 }}>
           {hero.headline}
         </div>
-        <div style={{ fontSize: 28, color: "#9fb0aa", marginTop: 32 }}>
+        <div style={{ fontSize: 28, color: "#5a6a63", marginTop: 32 }}>
           {`${site.name} · Verification infrastructure for sustainable trade`}
         </div>
       </div>

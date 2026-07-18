@@ -22,7 +22,7 @@ export default function Ventures() {
                 <a
                   href={v.href}
                   onClick={() => track(v.event)}
-                  className="group flex h-full flex-col rounded-lg border border-slate-line bg-ink p-6 transition-colors hover:border-accent"
+                  className="group flex h-full flex-col rounded-xl border border-slate-line bg-ink p-6 shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:border-accent hover:shadow-[var(--shadow-card-hover)]"
                 >
                   <span className="font-heading text-xs uppercase tracking-widest text-accent">
                     {String(i + 1).padStart(2, "0")}

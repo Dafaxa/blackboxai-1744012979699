@@ -14,7 +14,7 @@ export default function Credibility() {
           {credibility.wins.map((win) => (
             <li
               key={win.title}
-              className="rounded-lg border border-slate-line p-6"
+              className="rounded-xl border border-slate-line bg-ink p-6 shadow-[var(--shadow-card)]"
             >
               <p className="text-xs uppercase tracking-widest text-accent">
                 {win.note}

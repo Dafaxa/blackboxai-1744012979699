@@ -1,18 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  /* Deep neutral base + restrained verification-green accent */
-  --color-ink: #0b0f0e;
-  --color-ink-soft: #111614;
-  --color-slate-line: #232b28;
-  --color-mist: #e8edeb;
-  --color-mist-dim: #9fb0aa;
-  --color-accent: #2fbf71;
-  --color-accent-dim: #1e7a49;
+  /* Bright, modern light palette — clean whites + vivid emerald accent */
+  --color-ink: #ffffff; /* page / card background */
+  --color-ink-soft: #f4f8f6; /* alternating section / panel */
+  --color-slate-line: #e3eae7; /* hairline borders */
+  --color-mist: #0d1a15; /* primary text (near-black, warm) */
+  --color-mist-dim: #5a6a63; /* muted / secondary text */
+  --color-accent: #047857; /* emerald-700 — AA on white, white text on fill */
+  --color-accent-bright: #10b981; /* emerald-500 — highlights, motif */
+  --color-accent-dim: #d5efe5; /* soft tint for backgrounds */
 
   --font-heading: "Space Grotesk", "Avenir Next", "Helvetica Neue", Arial,
     sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(13, 26, 21, 0.04),
+    0 8px 24px -12px rgba(13, 26, 21, 0.12);
+  --shadow-card-hover: 0 2px 4px rgba(13, 26, 21, 0.06),
+    0 16px 40px -16px rgba(4, 120, 87, 0.28);
 }
 
 html {
@@ -42,7 +48,7 @@ h3 {
 
 ::selection {
   background: var(--color-accent);
-  color: var(--color-ink);
+  color: #ffffff;
 }
 
 /* Visible focus for keyboard users (WCAG 2.4.7) */
@@ -72,6 +78,15 @@ h3 {
   }
 }
 
+/* Soft ambient gradient blob for the hero */
+.hero-glow {
+  background: radial-gradient(
+    60% 60% at 70% 30%,
+    rgba(16, 185, 129, 0.18) 0%,
+    rgba(16, 185, 129, 0) 70%
+  );
+}
+
 /* Skip link (hidden until focused) */
 .skip-link {
   position: absolute;
@@ -79,7 +94,7 @@ h3 {
   top: 0;
   z-index: 100;
   background: var(--color-accent);
-  color: var(--color-ink);
+  color: #ffffff;
   padding: 0.5rem 1rem;
   font-weight: 600;
 }
