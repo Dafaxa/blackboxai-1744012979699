@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
   <!-- [PLACEHOLDER] Replace with real headshot (headshot.jpg, same as LinkedIn) -->
-  <rect width="320" height="320" fill="#111614"/>
-  <circle cx="160" cy="120" r="52" fill="#232b28"/>
-  <path d="M60 300c0-55 45-90 100-90s100 35 100 90" fill="#232b28"/>
-  <text x="160" y="300" text-anchor="middle" fill="#9fb0aa" font-family="sans-serif" font-size="14">Headshot placeholder</text>
+  <rect width="320" height="320" fill="#f4f8f6"/>
+  <circle cx="160" cy="120" r="52" fill="#d5efe5"/>
+  <path d="M60 300c0-55 45-90 100-90s100 35 100 90" fill="#d5efe5"/>
+  <text x="160" y="300" text-anchor="middle" fill="#5a6a63" font-family="sans-serif" font-size="14">Headshot placeholder</text>
 </svg>
