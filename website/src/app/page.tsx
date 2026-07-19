@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Thesis from "@/components/Thesis";
+import Focus from "@/components/Focus";
 import Ventures from "@/components/Ventures";
 import Credibility from "@/components/Credibility";
 import About from "@/components/About";
@@ -15,6 +16,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <Thesis />
+        <Focus />
         <Ventures />
         <Credibility />
         <About />

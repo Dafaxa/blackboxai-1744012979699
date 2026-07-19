@@ -22,6 +22,7 @@ export const site = {
 
 export const nav = [
   { label: "Thesis", href: "#thesis" },
+  { label: "Focus", href: "#focus" },
   { label: "Ventures", href: "#ventures" },
   { label: "Credibility", href: "#credibility" },
   { label: "About", href: "#about" },
@@ -56,6 +57,67 @@ export const thesis = {
     {
       title: "Proof",
       body: "Certified, traceable products competing in real markets.",
+    },
+  ],
+} as const;
+
+export const focus = {
+  heading: "Focus areas",
+  sub: "Three lenses on the same problem: making sustainable trade provable.",
+  segments: [
+    {
+      title: "Technology",
+      tagline: "The rails that produce proof.",
+      topics: [
+        {
+          name: "Digital MRV",
+          line: "Measurement, reporting & verification systems that turn field data into audit-grade claims.",
+        },
+        {
+          name: "Agentic AI",
+          line: "Autonomous agents that read regulations, reconcile documents, and run compliance workflows.",
+        },
+        {
+          name: "Traceability infrastructure",
+          line: "Chain-of-custody data rails from farm and facility to certificate and customs.",
+        },
+      ],
+    },
+    {
+      title: "Innovation",
+      tagline: "New models for a proof economy.",
+      topics: [
+        {
+          name: "Compliance as market access",
+          line: "Turning regulatory burden into competitive advantage for exporters who can prove first.",
+        },
+        {
+          name: "Venture building",
+          line: "One thesis, multiple companies — infrastructure, intelligence, and proof in market.",
+        },
+        {
+          name: "Verification-native products",
+          line: "Products designed around their evidence trail, not certified as an afterthought.",
+        },
+      ],
+    },
+    {
+      title: "Sustainability",
+      tagline: "Where the mandates are landing.",
+      topics: [
+        {
+          name: "Carbon & CBAM",
+          line: "Border carbon adjustments and the MRV burden they push onto every supply chain.",
+        },
+        {
+          name: "Halal compliance",
+          line: "Indonesia's BPJPH mandate — Oct 17, 2026 — makes certification a condition of trade.",
+        },
+        {
+          name: "Verified supply chains",
+          line: "Deforestation-free, traceable, certified — the new baseline for market entry.",
+        },
+      ],
     },
   ],
 } as const;
