@@ -3,6 +3,7 @@
 import { ventures } from "@/content/site";
 import { track } from "@/lib/analytics";
 import Reveal from "./Reveal";
+import { IconChip } from "./Icons";
 
 export default function Ventures() {
   return (
@@ -24,10 +25,17 @@ export default function Ventures() {
                   onClick={() => track(v.event)}
                   className="group flex h-full flex-col rounded-xl border border-slate-line bg-ink p-6 shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:border-accent hover:shadow-[var(--shadow-card-hover)]"
                 >
-                  <span className="font-heading text-xs uppercase tracking-widest text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-3 font-heading text-xl font-semibold text-mist">
+                  <div className="flex items-center justify-between">
+                    <IconChip size="lg">
+                      <span className="font-heading text-lg font-bold">
+                        {v.name.charAt(0)}
+                      </span>
+                    </IconChip>
+                    <span className="font-heading text-xs uppercase tracking-widest text-mist-dim">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-heading text-xl font-semibold text-mist">
                     {v.name}
                   </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-mist-dim">

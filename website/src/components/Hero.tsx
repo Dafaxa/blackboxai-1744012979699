@@ -1,6 +1,6 @@
 "use client";
 
-import { hero } from "@/content/site";
+import { hero, stats } from "@/content/site";
 import { track } from "@/lib/analytics";
 import { openBooking } from "./BookingModal";
 
@@ -59,6 +59,19 @@ export default function Hero() {
             {hero.secondaryCta.label}
           </a>
         </div>
+
+        {/* Stats band — quick visual proof points */}
+        <dl className="mt-20 grid gap-6 border-t border-slate-line pt-8 sm:grid-cols-3">
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-col">
+              <dt className="order-2 mt-1 text-sm text-mist-dim">{s.label}</dt>
+              <dd className="font-heading text-3xl font-bold text-mist">
+                {s.value}
+                <span className="text-accent-bright">.</span>
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

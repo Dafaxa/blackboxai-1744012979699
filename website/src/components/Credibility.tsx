@@ -1,5 +1,6 @@
 import { credibility } from "@/content/site";
 import Reveal from "./Reveal";
+import { GlobeIcon, IconChip, TrophyIcon } from "./Icons";
 
 export default function Credibility() {
   return (
@@ -16,7 +17,10 @@ export default function Credibility() {
               key={win.title}
               className="rounded-xl border border-slate-line bg-ink p-6 shadow-[var(--shadow-card)]"
             >
-              <p className="text-xs uppercase tracking-widest text-accent">
+              <IconChip>
+                <TrophyIcon className="h-5 w-5" />
+              </IconChip>
+              <p className="mt-4 text-xs uppercase tracking-widest text-accent">
                 {win.note}
               </p>
               <p className="mt-2 font-heading text-lg font-semibold text-mist">
@@ -25,7 +29,8 @@ export default function Credibility() {
             </li>
           ))}
         </ul>
-        <p className="mt-8 max-w-xl text-sm leading-relaxed text-mist-dim">
+        <p className="mt-8 flex max-w-xl items-center gap-3 text-sm leading-relaxed text-mist-dim">
+          <GlobeIcon className="h-5 w-5 shrink-0 text-accent" />
           {credibility.institutions}
         </p>
       </Reveal>

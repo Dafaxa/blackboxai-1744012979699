@@ -39,6 +39,12 @@ export const hero = {
   },
 } as const;
 
+export const stats = [
+  { value: "Oct 2026", label: "BPJPH halal mandate takes full effect" },
+  { value: "3", label: "ventures — one verification thesis" },
+  { value: "3", label: "international competition wins" },
+] as const;
+
 export const thesis = {
   heading: "The thesis",
   paragraph:
