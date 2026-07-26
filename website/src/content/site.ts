@@ -137,18 +137,21 @@ export const ventures = {
       line: "Digital MRV & trade-compliance infrastructure.",
       href: "#contact", // Phase 2: /work/asthaloka
       event: "venture_asthaloka",
+      icon: "layers", // infrastructure
     },
     {
       name: "Invisi AI",
       line: "Agentic AI for compliance & operations.",
       href: "#contact", // Phase 2: /work/invisi
       event: "venture_invisi",
+      icon: "chip", // intelligence
     },
     {
       name: "Lokka",
       line: "Certified, traceable products — the thesis, proven in market.",
       href: "#contact", // Phase 2: /work/lokka
       event: "venture_lokka",
+      icon: "shield", // proof
     },
   ],
   tier2: {

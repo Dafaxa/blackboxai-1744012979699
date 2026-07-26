@@ -3,7 +3,13 @@
 import { ventures } from "@/content/site";
 import { track } from "@/lib/analytics";
 import Reveal from "./Reveal";
-import { IconChip } from "./Icons";
+import { ChipIcon, IconChip, LayersIcon, ShieldCheckIcon } from "./Icons";
+
+const ventureIcons = {
+  layers: LayersIcon,
+  chip: ChipIcon,
+  shield: ShieldCheckIcon,
+} as const;
 
 export default function Ventures() {
   return (
@@ -18,7 +24,9 @@ export default function Ventures() {
 
         <Reveal className="mt-12">
           <ul className="grid gap-5 sm:grid-cols-3">
-            {ventures.featured.map((v, i) => (
+            {ventures.featured.map((v, i) => {
+              const Icon = ventureIcons[v.icon];
+              return (
               <li key={v.name}>
                 <a
                   href={v.href}
@@ -27,9 +35,7 @@ export default function Ventures() {
                 >
                   <div className="flex items-center justify-between">
                     <IconChip size="lg">
-                      <span className="font-heading text-lg font-bold">
-                        {v.name.charAt(0)}
-                      </span>
+                      <Icon className="h-6 w-6" />
                     </IconChip>
                     <span className="font-heading text-xs uppercase tracking-widest text-mist-dim">
                       {String(i + 1).padStart(2, "0")}
@@ -46,7 +52,8 @@ export default function Ventures() {
                   </span>
                 </a>
               </li>
-            ))}
+              );
+            })}
           </ul>
         </Reveal>
 
