@@ -55,6 +55,10 @@ export default function Nav() {
     };
   }, [menuOpen]);
 
+  // Nav starts over the dark-navy hero (transparent, white text), then
+  // switches to a solid light header once scrolled past it or menu is open.
+  const onDark = !scrolled && !menuOpen;
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors ${
@@ -69,10 +73,12 @@ export default function Nav() {
       >
         <a
           href="#top"
-          className="font-heading text-base font-semibold tracking-tight text-mist"
+          className={`font-heading text-base font-semibold tracking-tight transition-colors ${
+            onDark ? "text-white" : "text-mist"
+          }`}
         >
           {site.name}
-          <span className="text-accent">.</span>
+          <span className="text-accent-bright">.</span>
         </a>
         <div className="hidden items-center gap-6 sm:flex">
           {nav.map((item) => (
@@ -80,8 +86,14 @@ export default function Nav() {
               key={item.href}
               href={item.href}
               aria-current={active === item.href ? "true" : undefined}
-              className={`text-sm transition-colors hover:text-mist ${
-                active === item.href ? "text-accent" : "text-mist-dim"
+              className={`text-sm transition-colors ${
+                active === item.href
+                  ? onDark
+                    ? "text-accent-bright"
+                    : "text-accent"
+                  : onDark
+                    ? "text-white/70 hover:text-white"
+                    : "text-mist-dim hover:text-mist"
               }`}
             >
               {item.label}
@@ -91,16 +103,18 @@ export default function Nav() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => openBooking("nav")}
-            className="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-ink transition-opacity hover:opacity-90"
+            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
           >
-            Book a call
+            Contact
           </button>
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-slate-line text-mist sm:hidden"
+            className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md border transition-colors sm:hidden ${
+              onDark ? "border-white/25 text-white" : "border-slate-line text-mist"
+            }`}
           >
             <svg
               viewBox="0 0 24 24"

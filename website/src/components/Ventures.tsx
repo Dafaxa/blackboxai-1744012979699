@@ -3,12 +3,13 @@
 import { ventures } from "@/content/site";
 import { track } from "@/lib/analytics";
 import Reveal from "./Reveal";
-import { ChipIcon, IconChip, LayersIcon, ShieldCheckIcon } from "./Icons";
+import { ChipIcon, GlobeIcon, IconChip, NetworkIcon, PropertyIcon } from "./Icons";
 
 const ventureIcons = {
-  layers: LayersIcon,
   chip: ChipIcon,
-  shield: ShieldCheckIcon,
+  property: PropertyIcon,
+  globe: GlobeIcon,
+  network: NetworkIcon,
 } as const;
 
 export default function Ventures() {
@@ -23,7 +24,7 @@ export default function Ventures() {
         </Reveal>
 
         <Reveal className="mt-12">
-          <ul className="grid gap-5 sm:grid-cols-3">
+          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {ventures.featured.map((v, i) => {
               const Icon = ventureIcons[v.icon];
               return (
@@ -55,21 +56,6 @@ export default function Ventures() {
               );
             })}
           </ul>
-        </Reveal>
-
-        <Reveal className="mt-10">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-slate-line pt-6">
-            <p className="text-xs uppercase tracking-widest text-mist-dim">
-              {ventures.tier2.label}
-            </p>
-            <ul className="flex flex-wrap gap-x-6 gap-y-1">
-              {ventures.tier2.items.map((name) => (
-                <li key={name} className="text-sm text-mist">
-                  {name}
-                </li>
-              ))}
-            </ul>
-          </div>
         </Reveal>
       </div>
     </section>

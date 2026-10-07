@@ -2,17 +2,19 @@
  * Single source of truth for all site copy and links.
  * Edit here — no component changes needed for content updates.
  *
- * Items marked [PLACEHOLDER] are pending real copy/links from the
- * Personal Brand Kit and should be replaced before launch.
+ * Brand: DAFA — AI Technology Entrepreneur. Sourced from the DAFA AI Brand
+ * Guidelines System (positioning, taglines, framework, venture ecosystem).
+ * Items marked [PLACEHOLDER] are pending real links/assets.
  */
 
 export const site = {
   name: "Dafa",
   legalName: "Muhammad Dafa", // [PLACEHOLDER] confirm preferred full name
+  tagline: "AI Technology Entrepreneur",
   siteUrl: "https://dafa.example.com", // [PLACEHOLDER] real domain
-  title: "Dafa — Verification Infrastructure for Sustainable Trade",
+  title: "Dafa — AI Technology Entrepreneur",
   description:
-    "I build the verification and intelligence layer for sustainable trade — digital MRV, agentic AI for compliance, and certified traceable products.",
+    "I build AI-powered technology businesses that transform real-world industries — from intelligence to economic value.",
   email: "muhammaddafa1380@gmail.com",
   linkedin: "https://www.linkedin.com/in/dafa", // [PLACEHOLDER] real LinkedIn URL
   /** Cal.com booking link. [PLACEHOLDER] replace with real handle/event. */
@@ -21,143 +23,127 @@ export const site = {
 } as const;
 
 export const nav = [
-  { label: "Thesis", href: "#thesis" },
-  { label: "Focus", href: "#focus" },
+  { label: "Framework", href: "#framework" },
+  { label: "Domains", href: "#domains" },
   { label: "Ventures", href: "#ventures" },
   { label: "Credibility", href: "#credibility" },
   { label: "About", href: "#about" },
 ] as const;
 
 export const hero = {
-  headline: "I build the verification layer for sustainable trade.",
-  sub: "Compliance regimes are tightening across carbon, halal, and supply chains — the winners will be the ones who can prove, not just claim.",
-  primaryCta: { label: "Book a call", event: "hero_book_call" },
-  secondaryCta: {
-    label: "See the work",
+  eyebrow: "AI Technology Entrepreneur",
+  headline: "Building the digital infrastructure of the real economy.",
+  sub: "I build AI-powered technology businesses across property, industry, energy, trade, and talent.",
+  primaryCta: {
+    label: "Explore what I'm building",
     href: "#ventures",
     event: "hero_see_work",
   },
+  secondaryCta: { label: "Book a call", event: "hero_book_call" },
 } as const;
 
 export const stats = [
-  { value: "Oct 2026", label: "BPJPH halal mandate takes full effect" },
-  { value: "3", label: "ventures — one verification thesis" },
+  { value: "4", label: "ventures — one framework" },
+  { value: "5", label: "domains: property, industry, energy, trade, talent" },
   { value: "3", label: "international competition wins" },
 ] as const;
 
-export const thesis = {
-  heading: "The thesis",
+export const framework = {
+  heading: "The framework",
   paragraph:
-    "Global trade is entering a proof economy. Carbon border adjustments, deforestation rules, and halal mandates all converge on the same requirement: verifiable claims at the transaction level. Most exporters and supply chains can't produce that proof today. I'm building the stack that makes it possible — measurement and reporting infrastructure at the bottom, agentic AI that turns raw compliance data into decisions in the middle, and certified products that prove the model in market at the top.",
-  whyNow:
-    "Why now: Indonesia's BPJPH halal mandate takes full effect October 17, 2026, and EU CBAM reporting is already live. Verification is shifting from marketing to market access.",
-  layers: [
+    "A framework to turn intelligence into real-world economic value. Every venture I build runs the same loop: read the system with AI, simulate it as a digital twin, optimize the decisions inside it, and operate it for outcomes that show up on a balance sheet — not a slide.",
+  positioning:
+    "I build AI-powered technology businesses that transform real-world industries.",
+  steps: [
     {
-      title: "Infrastructure",
-      body: "Digital MRV and trade-compliance rails — the measurement layer.",
+      title: "Understand",
+      body: "AI reads the system.",
+      icon: "neural",
     },
     {
-      title: "Intelligence",
-      body: "Agentic AI that turns compliance data into operational decisions.",
+      title: "Simulate",
+      body: "Digital Twin models the system.",
+      icon: "cube",
     },
     {
-      title: "Proof",
-      body: "Certified, traceable products competing in real markets.",
+      title: "Optimize",
+      body: "AI discovers better decisions.",
+      icon: "bars",
+    },
+    {
+      title: "Operate",
+      body: "Technology creates real-world outcomes.",
+      icon: "gear",
     },
   ],
+  outcome: "Real economic value",
 } as const;
 
-export const focus = {
-  heading: "Focus areas",
-  sub: "Three lenses on the same problem: making sustainable trade provable.",
-  segments: [
+export const domains = {
+  heading: "Domains",
+  sub: "One builder, one framework, five domains of the real economy.",
+  items: [
     {
-      title: "Technology",
-      tagline: "The rails that produce proof.",
-      topics: [
-        {
-          name: "Digital MRV",
-          line: "Measurement, reporting & verification systems that turn field data into audit-grade claims.",
-        },
-        {
-          name: "Agentic AI",
-          line: "Autonomous agents that read regulations, reconcile documents, and run compliance workflows.",
-        },
-        {
-          name: "Traceability infrastructure",
-          line: "Chain-of-custody data rails from farm and facility to certificate and customs.",
-        },
-      ],
+      name: "Property",
+      icon: "property",
+      line: "Digital twins and AI sales infrastructure for real estate.",
     },
     {
-      title: "Innovation",
-      tagline: "New models for a proof economy.",
-      topics: [
-        {
-          name: "Compliance as market access",
-          line: "Turning regulatory burden into competitive advantage for exporters who can prove first.",
-        },
-        {
-          name: "Venture building",
-          line: "One thesis, multiple companies — infrastructure, intelligence, and proof in market.",
-        },
-        {
-          name: "Verification-native products",
-          line: "Products designed around their evidence trail, not certified as an afterthought.",
-        },
-      ],
+      name: "Industry",
+      icon: "factory",
+      line: "AI engineering and digital infrastructure for industrial operations.",
     },
     {
-      title: "Sustainability",
-      tagline: "Where the mandates are landing.",
-      topics: [
-        {
-          name: "Carbon & CBAM",
-          line: "Border carbon adjustments and the MRV burden they push onto every supply chain.",
-        },
-        {
-          name: "Halal compliance",
-          line: "Indonesia's BPJPH mandate — Oct 17, 2026 — makes certification a condition of trade.",
-        },
-        {
-          name: "Verified supply chains",
-          line: "Deforestation-free, traceable, certified — the new baseline for market entry.",
-        },
-      ],
+      name: "Energy",
+      icon: "waveform",
+      line: "Simulating and optimizing energy systems in real time.",
+    },
+    {
+      name: "Trade",
+      icon: "globe",
+      line: "Sustainable, verifiable trade infrastructure.",
+    },
+    {
+      name: "Talent",
+      icon: "network",
+      line: "Connecting AI talent to real-world opportunity.",
     },
   ],
 } as const;
 
 export const ventures = {
   heading: "Ventures",
-  sub: "Three companies, one stack — infrastructure, intelligence, proof.",
+  sub: "Four companies, one framework — understand, simulate, optimize, operate.",
   featured: [
     {
+      name: "Vistara",
+      line: "AI Engineering & Digital Infrastructure.",
+      href: "#contact", // Phase 2: /work/vistara
+      event: "venture_vistara",
+      icon: "chip",
+    },
+    {
+      name: "Ananta Property",
+      line: "Property Experience & AI Sales Platform.",
+      href: "#contact", // Phase 2: /work/ananta
+      event: "venture_ananta",
+      icon: "property",
+    },
+    {
       name: "Asthaloka Global",
-      line: "Digital MRV & trade-compliance infrastructure.",
+      line: "Sustainable Trade Infrastructure.",
       href: "#contact", // Phase 2: /work/asthaloka
       event: "venture_asthaloka",
-      icon: "layers", // infrastructure
+      icon: "globe",
     },
     {
-      name: "Invisi AI",
-      line: "Agentic AI for compliance & operations.",
-      href: "#contact", // Phase 2: /work/invisi
-      event: "venture_invisi",
-      icon: "chip", // intelligence
-    },
-    {
-      name: "Lokka",
-      line: "Certified, traceable products — the thesis, proven in market.",
-      href: "#contact", // Phase 2: /work/lokka
-      event: "venture_lokka",
-      icon: "shield", // proof
+      name: "Talentika",
+      line: "AI Talent & Opportunity Platform.",
+      href: "#contact", // Phase 2: /work/talentika
+      event: "venture_talentika",
+      icon: "network",
     },
   ],
-  tier2: {
-    label: "The same thesis, applied to adjacent markets",
-    items: ["Ananta Property", "Talentika", "Lokarasa"],
-  },
 } as const;
 
 export const credibility = {
@@ -177,24 +163,23 @@ export const credibility = {
     },
   ],
   institutions:
-    "Working alongside central-bank innovation programs, industry associations, and certification bodies.", // referenced tastefully per PRD
+    "Working alongside central-bank innovation programs, industry associations, and certification bodies.",
 } as const;
 
 export const about = {
   heading: "About",
-  // [PLACEHOLDER] Replace with medium bio from the Personal Brand Kit.
-  bio: "I'm a founder building at the intersection of sustainable trade, verification infrastructure, and applied AI. Across Asthaloka, Invisi, and Lokka, the through-line is the same: markets are starting to pay for proof, and the systems that produce that proof don't exist yet at the scale trade requires. I build them — from the measurement rails up to the certified products that show the model works.",
+  bio: "I'm a founder building AI-powered technology businesses that transform real-world industries. Across Vistara, Ananta, Asthaloka, and Talentika, the same framework repeats: read the system with AI, simulate it as a digital twin, optimize the decisions inside it, and operate it for real economic value — across property, industry, energy, trade, and talent. Building from Indonesia, for the world.",
   headshotAlt: "Portrait of Dafa",
   /** [PLACEHOLDER] add real headshot at /public/headshot.jpg (same as LinkedIn) */
   headshotSrc: "/headshot.svg",
 } as const;
 
 export const contact = {
-  heading: "Let's talk",
-  line: "If you're working on trade compliance, carbon MRV, or verified supply chains — let's talk.",
+  heading: "Let's build",
+  line: "If you're working on AI infrastructure, digital twins, or real-world industry platforms — let's talk.",
   cta: { label: "Book a call", event: "contact_book_call" },
 } as const;
 
 export const footer = {
-  note: `© ${new Date().getFullYear()} ${site.name}. Built for signal, not noise.`,
+  note: `© ${new Date().getFullYear()} ${site.name}. Building AI for the real economy.`,
 } as const;

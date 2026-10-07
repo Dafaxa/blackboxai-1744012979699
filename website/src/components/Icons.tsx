@@ -88,6 +88,92 @@ export function GlobeIcon({ className }: IconProps) {
   );
 }
 
+/** Neural network nodes — AI / understand */
+export function NeuralIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="12" cy="12" r="2" />
+      <circle cx="12" cy="4" r="1.6" />
+      <circle cx="19" cy="8" r="1.6" />
+      <circle cx="19" cy="16" r="1.6" />
+      <circle cx="12" cy="20" r="1.6" />
+      <circle cx="5" cy="16" r="1.6" />
+      <circle cx="5" cy="8" r="1.6" />
+      <path d="M12 6v4M17.6 9l-3.7 2.1M17.6 15l-3.7-2.1M12 18v-4M6.4 15l3.7-2.1M6.4 9l3.7 2.1" />
+    </svg>
+  );
+}
+
+/** Wireframe cube — digital twin / simulate */
+export function CubeIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z" />
+      <path d="M4 7l8 4 8-4M12 11v10" />
+    </svg>
+  );
+}
+
+/** Ascending bars — optimize */
+export function BarsIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M5 20V13M12 20V8M19 20V4" />
+    </svg>
+  );
+}
+
+/** Gear — operate */
+export function GearIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 3v2.5M12 18.5V21M21 12h-2.5M5.5 12H3M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8M18.4 18.4l-1.8-1.8M7.4 7.4 5.6 5.6" />
+    </svg>
+  );
+}
+
+/** Waveform — energy */
+export function WaveformIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M2 12h3l2-7 3 14 3-10 2 5h3l2-5" />
+    </svg>
+  );
+}
+
+/** Factory — industry */
+export function FactoryIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M3 21V11l5 3V11l5 3V9l6 3.5V21H3Z" />
+      <path d="M8 21v-4M14 21v-4" />
+    </svg>
+  );
+}
+
+/** Architectural grid — property */
+export function PropertyIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="4" y="4" width="16" height="16" rx="1" />
+      <path d="M4 10h16M4 16h16M10 4v16M16 4v16" />
+    </svg>
+  );
+}
+
+/** Human network — talent */
+export function NetworkIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="12" cy="6" r="2.5" />
+      <circle cx="6" cy="18" r="2.5" />
+      <circle cx="18" cy="18" r="2.5" />
+      <path d="M10.3 7.8 7.7 16.2M13.7 7.8l2.6 8.4M8.5 18h7" />
+    </svg>
+  );
+}
+
 /** Rounded tinted chip wrapping an icon — the recurring visual unit */
 export function IconChip({
   children,

@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  /* Bright, modern light palette — clean whites + vivid emerald accent */
+  /* DAFA brand system — deep navy + technology blue on clean white/gray */
   --color-ink: #ffffff; /* page / card background */
-  --color-ink-soft: #f4f8f6; /* alternating section / panel */
-  --color-slate-line: #e3eae7; /* hairline borders */
-  --color-mist: #0d1a15; /* primary text (near-black, warm) */
-  --color-mist-dim: #5a6a63; /* muted / secondary text */
-  --color-accent: #047857; /* emerald-700 — AA on white, white text on fill */
-  --color-accent-bright: #10b981; /* emerald-500 — highlights, motif */
-  --color-accent-dim: #d5efe5; /* soft tint for backgrounds */
+  --color-ink-soft: #f2f4f7; /* soft gray — alternating section / panel */
+  --color-slate-line: #d0d5dd; /* hairline borders */
+  --color-mist: #101828; /* primary text */
+  --color-mist-dim: #667085; /* muted / secondary text */
+  --color-accent: #1760ff; /* Technology Blue — AA on white, white text on fill */
+  --color-accent-bright: #4da3ff; /* Electric Blue — highlights, motif */
+  --color-accent-dim: #e6eeff; /* soft tint for backgrounds */
+  --color-navy: #071a33; /* Deep Navy — hero / dark brand moments */
 
   --font-heading: "Space Grotesk", "Avenir Next", "Helvetica Neue", Arial,
     sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
 
-  --shadow-card: 0 1px 2px rgba(13, 26, 21, 0.04),
-    0 8px 24px -12px rgba(13, 26, 21, 0.12);
-  --shadow-card-hover: 0 2px 4px rgba(13, 26, 21, 0.06),
-    0 16px 40px -16px rgba(4, 120, 87, 0.28);
+  --shadow-card: 0 1px 2px rgba(7, 26, 51, 0.04),
+    0 8px 24px -12px rgba(7, 26, 51, 0.12);
+  --shadow-card-hover: 0 2px 4px rgba(7, 26, 51, 0.06),
+    0 16px 40px -16px rgba(23, 96, 255, 0.28);
 }
 
 html {
@@ -78,12 +79,12 @@ h3 {
   }
 }
 
-/* Soft ambient gradient blob for the hero */
+/* Soft ambient gradient blob for the dark-navy hero */
 .hero-glow {
   background: radial-gradient(
     60% 60% at 70% 30%,
-    rgba(16, 185, 129, 0.18) 0%,
-    rgba(16, 185, 129, 0) 70%
+    rgba(77, 163, 255, 0.28) 0%,
+    rgba(77, 163, 255, 0) 70%
   );
 }
 
