@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { site } from "@/content/site";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import BookingModal from "@/components/BookingModal";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -56,7 +59,10 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        {children}
+        <Nav />
+        <main id="main">{children}</main>
+        <Footer />
+        <BookingModal />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

@@ -30,7 +30,7 @@ export default function OgImage() {
           }}
         />
         <div style={{ fontSize: 64, fontWeight: 700, lineHeight: 1.1 }}>
-          {hero.headline}
+          {`${hero.headlineA} ${hero.headlineB}`}
         </div>
         <div style={{ fontSize: 28, color: "#667085", marginTop: 32 }}>
           {`${site.name} · ${site.tagline}`}

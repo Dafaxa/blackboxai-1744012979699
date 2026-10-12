@@ -174,6 +174,74 @@ export function NetworkIcon({ className }: IconProps) {
   );
 }
 
+/** Open book — learning / education */
+export function BookIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M12 6c-1.5-1-3.5-1.5-6-1.5v13c2.5 0 4.5.5 6 1.5 1.5-1 3.5-1.5 6-1.5v-13c-2.5 0-4.5.5-6 1.5Z" />
+      <path d="M12 6v13" />
+    </svg>
+  );
+}
+
+/** Speech bubble — conversation / discuss */
+export function ChatIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 5h16v11H9l-5 4V5Z" />
+    </svg>
+  );
+}
+
+/** Flask — explore / experiment */
+export function FlaskIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M10 3h4M10 3v6l-5.5 9.5A1 1 0 0 0 5.4 20h13.2a1 1 0 0 0 .9-1.5L14 9V3" />
+      <path d="M7.5 15h9" />
+    </svg>
+  );
+}
+
+/** Document — collaborate / proposal */
+export function DocIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M7 3h7l4 4v14H7V3Z" />
+      <path d="M14 3v4h4M9 12h6M9 16h6" />
+    </svg>
+  );
+}
+
+/** Resolve a content-driven icon key (e.g. "chip", "globe") to a component. */
+export const iconMap = {
+  chip: ChipIcon,
+  property: PropertyIcon,
+  globe: GlobeIcon,
+  network: NetworkIcon,
+  neural: NeuralIcon,
+  cube: CubeIcon,
+  bars: BarsIcon,
+  factory: FactoryIcon,
+  shield: ShieldCheckIcon,
+  leaf: LeafIcon,
+  book: BookIcon,
+  chat: ChatIcon,
+  flask: FlaskIcon,
+  doc: DocIcon,
+  waveform: WaveformIcon,
+  gear: GearIcon,
+  layers: LayersIcon,
+  trophy: TrophyIcon,
+} as const;
+
+export type IconKey = keyof typeof iconMap;
+
+export function Icon({ name, className }: { name: IconKey; className?: string }) {
+  const Component = iconMap[name];
+  return <Component className={className} />;
+}
+
 /** Rounded tinted chip wrapping an icon — the recurring visual unit */
 export function IconChip({
   children,

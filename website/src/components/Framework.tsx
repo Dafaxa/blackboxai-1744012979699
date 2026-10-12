@@ -1,21 +1,17 @@
 import { framework } from "@/content/site";
 import Reveal from "./Reveal";
-import { BarsIcon, CubeIcon, GearIcon, IconChip, NeuralIcon } from "./Icons";
-
-const stepIcons = {
-  neural: NeuralIcon,
-  cube: CubeIcon,
-  bars: BarsIcon,
-  gear: GearIcon,
-} as const;
+import { Icon, IconChip } from "./Icons";
 
 /** Four-step framework: Understand → Simulate → Optimize → Operate. */
 export default function Framework() {
   return (
-    <section id="framework" className="mx-auto max-w-5xl px-5 py-24 sm:py-32">
+    <section className="mx-auto max-w-5xl px-5 py-24 sm:py-32">
       <div className="grid gap-14 lg:grid-cols-2 lg:gap-10">
         <Reveal>
-          <h2 className="text-3xl font-bold text-mist sm:text-4xl">
+          <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+            {framework.label}
+          </p>
+          <h2 className="mt-3 text-3xl font-bold text-mist sm:text-4xl">
             {framework.heading}
           </h2>
           <p className="mt-6 text-base leading-relaxed text-mist-dim">
@@ -33,34 +29,31 @@ export default function Framework() {
               aria-hidden="true"
               className="absolute bottom-8 left-[27px] top-8 w-px bg-slate-line"
             />
-            {framework.steps.map((step, i) => {
-              const Icon = stepIcons[step.icon];
-              return (
-                <li
-                  key={step.title}
-                  className="relative rounded-xl border border-slate-line bg-ink p-5 shadow-[var(--shadow-card)]"
-                >
-                  <div className="flex items-start gap-4">
-                    <IconChip>
-                      <Icon className="h-5 w-5" />
-                    </IconChip>
-                    <div>
-                      <div className="flex items-baseline gap-3">
-                        <h3 className="font-heading text-lg font-semibold text-mist">
-                          {step.title}
-                        </h3>
-                        <span className="font-heading text-xs uppercase tracking-widest text-accent">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-                      <p className="mt-1 text-sm leading-relaxed text-mist-dim">
-                        {step.body}
-                      </p>
+            {framework.steps.map((step, i) => (
+              <li
+                key={step.title}
+                className="relative rounded-xl border border-slate-line bg-ink p-5 shadow-[var(--shadow-card)]"
+              >
+                <div className="flex items-start gap-4">
+                  <IconChip>
+                    <Icon name={step.icon} className="h-5 w-5" />
+                  </IconChip>
+                  <div>
+                    <div className="flex items-baseline gap-3">
+                      <h3 className="font-heading text-lg font-semibold text-mist">
+                        {step.title}
+                      </h3>
+                      <span className="font-heading text-xs uppercase tracking-widest text-accent">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
+                    <p className="mt-1 text-sm leading-relaxed text-mist-dim">
+                      {step.body}
+                    </p>
                   </div>
-                </li>
-              );
-            })}
+                </div>
+              </li>
+            ))}
           </ol>
           <p className="mt-4 text-center text-xs uppercase tracking-widest text-accent">
             {framework.steps.map((s) => s.title).join(" → ")} →{" "}

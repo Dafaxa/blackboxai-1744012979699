@@ -1,12 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { hero, stats } from "@/content/site";
 import { track } from "@/lib/analytics";
 import { openBooking } from "./BookingModal";
+import { Icon } from "./Icons";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-navy">
+    <section className="relative overflow-hidden bg-navy">
       {/* Abstract signal motif — pure CSS/SVG, no stock imagery */}
       <div aria-hidden="true" className="absolute inset-0">
         <div className="hero-glow absolute inset-0" />
@@ -36,19 +38,19 @@ export default function Hero() {
           {hero.eyebrow}
         </p>
         <h1 className="max-w-3xl text-4xl font-bold leading-[1.08] text-white sm:text-5xl md:text-6xl">
-          {hero.headline}
+          {hero.headlineA} {hero.headlineB}
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
           {hero.sub}
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a
+          <Link
             href={hero.primaryCta.href}
             onClick={() => track(hero.primaryCta.event)}
             className="rounded-md bg-accent px-6 py-3 text-base font-semibold text-white transition-opacity hover:opacity-90"
           >
             {hero.primaryCta.label}
-          </a>
+          </Link>
           <button
             onClick={() => {
               track(hero.secondaryCta.event);
@@ -61,14 +63,15 @@ export default function Hero() {
         </div>
 
         {/* Stats band — quick visual proof points */}
-        <dl className="mt-20 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
+        <dl className="mt-20 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-3 lg:grid-cols-5">
           {stats.map((s) => (
-            <div key={s.label} className="flex flex-col">
-              <dt className="order-2 mt-1 text-sm text-white/60">{s.label}</dt>
-              <dd className="font-heading text-3xl font-bold text-white">
-                {s.value}
-                <span className="text-accent-bright">.</span>
+            <div key={s.title} className="flex flex-col gap-2">
+              <Icon name={s.icon} className="h-5 w-5 text-accent-bright" />
+              <dd className="font-heading text-base font-semibold text-white">
+                {s.value ? `${s.value} ` : ""}
+                {s.title}
               </dd>
+              <dt className="text-xs leading-relaxed text-white/55">{s.sub}</dt>
             </div>
           ))}
         </dl>
