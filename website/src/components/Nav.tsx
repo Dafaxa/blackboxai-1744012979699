@@ -6,28 +6,20 @@ import { usePathname } from "next/navigation";
 import { nav, site } from "@/content/site";
 import { openBooking } from "./BookingModal";
 
+/** Routes whose first section is a dark-navy hero get a dark header to match. */
+function isDarkRoute(pathname: string) {
+  return pathname === "/contact" || /^\/ventures\/[^/]+$/.test(pathname);
+}
+
 /**
- * Sticky nav shared across every route. The home page starts with a
- * dark-navy hero, so the nav starts transparent with light text there and
- * switches to a solid light header once scrolled — every other route is
- * plain white from the top, so the nav is solid/dark immediately.
+ * Sticky nav shared across every route. Header color is static per route
+ * (light on light-hero pages, dark on navy-hero pages) rather than
+ * scroll-reactive, matching the source design.
  */
 export default function Nav() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const [scrolled, setScrolled] = useState(false);
+  const onDark = isDarkRoute(pathname);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (!isHome) {
-      setScrolled(true);
-      return;
-    }
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
 
   // Close the mobile menu on Escape, on route change, and when the
   // viewport widens past sm.
@@ -52,14 +44,12 @@ export default function Nav() {
     };
   }, [menuOpen]);
 
-  const onDark = isHome && !scrolled && !menuOpen;
-
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors ${
-        scrolled || menuOpen
-          ? "border-b border-slate-line bg-ink/90 backdrop-blur"
-          : "bg-transparent"
+      className={`sticky top-0 z-50 backdrop-blur ${
+        onDark
+          ? "border-b border-white/10 bg-navy/95"
+          : "border-b border-slate-line bg-ink/95"
       }`}
     >
       <nav
@@ -68,7 +58,7 @@ export default function Nav() {
       >
         <Link
           href="/"
-          className={`font-heading text-base font-semibold tracking-tight transition-colors ${
+          className={`font-heading text-base font-semibold tracking-tight ${
             onDark ? "text-white" : "text-mist"
           }`}
         >
@@ -136,7 +126,9 @@ export default function Nav() {
       {menuOpen && (
         <div
           id="mobile-menu"
-          className="border-t border-slate-line bg-ink sm:hidden"
+          className={`border-t sm:hidden ${
+            onDark ? "border-white/10 bg-navy" : "border-slate-line bg-ink"
+          }`}
         >
           <ul className="mx-auto flex max-w-5xl flex-col px-5 py-2">
             {nav.map((item) => {
@@ -147,7 +139,13 @@ export default function Nav() {
                     href={item.href}
                     aria-current={active ? "true" : undefined}
                     className={`block py-3 text-base ${
-                      active ? "text-accent" : "text-mist"
+                      active
+                        ? onDark
+                          ? "text-accent-bright"
+                          : "text-accent"
+                        : onDark
+                          ? "text-white"
+                          : "text-mist"
                     }`}
                   >
                     {item.label}

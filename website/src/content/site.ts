@@ -274,6 +274,15 @@ export const about = {
   indoP3: "It is to identify problems that exist globally, build solutions competitively, and use Indonesia as the starting point.",
   indoT1: "BUILD FROM INDONESIA.",
   indoT2: "BUILD FOR THE WORLD.",
+  focusLabel: "CURRENT FOCUS",
+  focusHeading: "What I'm building next.",
+  focusIntro: "My current focus is on the intersection of:",
+  focusParts: ["AI ENGINEERING", "DIGITAL TWINS", "INTELLIGENT AUTOMATION", "REAL-WORLD INDUSTRIES"],
+  focusGoalIntro: "The goal is simple:",
+  focusGoal: "Build technology that creates measurable value.",
+  focusNot1: "Not hype.",
+  focusNot2: "Not technology for its own sake.",
+  focusValues: "Economic value. Operational value. Environmental value.",
 } as const;
 
 export const contact = {
@@ -284,6 +293,16 @@ export const contact = {
   /** [PLACEHOLDER] AI-generated placeholder from the design handoff. */
   image: "/images/contact-globe.jpg",
   cta: { label: "Book a call", event: "contact_book_call" },
+  collabLabel: "COLLABORATE",
+  collabHeading: "Building something ambitious?",
+  collabIntro: "I'm interested in working with:",
+  collabItems: [
+    { t: "Founders", d: "Building ambitious technology companies." },
+    { t: "Enterprise Leaders", d: "Looking to transform complex operations." },
+    { t: "Developers & Engineers", d: "Building the next generation of AI infrastructure." },
+    { t: "Investors", d: "Exploring high-growth technology opportunities." },
+    { t: "Industry Partners", d: "Looking for new applications of AI and digital infrastructure." },
+  ],
   steps: [
     { t: "Discuss your challenge", d: "15–30 minute conversation", icon: "chat" as VentureIcon },
     { t: "Explore opportunities", d: "Use cases, potential value, next steps", icon: "flask" as VentureIcon },

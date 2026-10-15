@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function VenturesPage() {
   return (
-    <section className="mx-auto max-w-5xl px-5 py-24 pt-32 sm:py-32 sm:pt-40">
+    <section className="mx-auto max-w-5xl px-5 py-24 sm:py-32">
       <Reveal>
         <p className="text-xs font-semibold uppercase tracking-widest text-accent">
           {venturesPage.label}
