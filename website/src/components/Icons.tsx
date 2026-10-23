@@ -213,6 +213,27 @@ export function DocIcon({ className }: IconProps) {
   );
 }
 
+/** Server rack — data centers / infrastructure */
+export function ServerIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="4" y="4" width="16" height="6" rx="1.2" />
+      <rect x="4" y="14" width="16" height="6" rx="1.2" />
+      <path d="M7.5 7h.01M7.5 17h.01" strokeWidth="2.4" />
+    </svg>
+  );
+}
+
+/** Mountain — mining / heavy industry */
+export function MountainIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M3 19 9.5 7l4 6.5L16 10l5 9H3Z" />
+      <path d="m13 13.2 1.3 2.1" />
+    </svg>
+  );
+}
+
 /** Resolve a content-driven icon key (e.g. "chip", "globe") to a component. */
 export const iconMap = {
   chip: ChipIcon,
@@ -233,6 +254,8 @@ export const iconMap = {
   gear: GearIcon,
   layers: LayersIcon,
   trophy: TrophyIcon,
+  server: ServerIcon,
+  mountain: MountainIcon,
 } as const;
 
 export type IconKey = keyof typeof iconMap;

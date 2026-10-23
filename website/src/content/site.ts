@@ -96,7 +96,28 @@ export const globalOutlook = {
 
 export type VentureIcon =
   | "chip" | "property" | "globe" | "network" | "neural" | "cube" | "bars"
-  | "factory" | "shield" | "leaf" | "book" | "chat" | "flask" | "doc" | "waveform";
+  | "factory" | "shield" | "leaf" | "book" | "chat" | "flask" | "doc" | "waveform"
+  | "server" | "mountain" | "gear";
+
+/** Shared 4-step framework, reused on every venture's detail page. */
+export const frameworkSteps = [
+  { num: "01", title: "Understand", lead: "AI reads the system.", body: "Data, behavior, environment, operations, and human decisions become an intelligent model.", icon: "neural" as VentureIcon },
+  { num: "02", title: "Simulate", lead: "Digital Twin models the system.", body: "Different scenarios can be explored before decisions are implemented in the real world.", icon: "cube" as VentureIcon },
+  { num: "03", title: "Optimize", lead: "AI discovers better decisions.", body: "Resources, energy, processes, sales, operations, and outcomes can be continuously optimized.", icon: "bars" as VentureIcon },
+  { num: "04", title: "Operate", lead: "Technology creates real-world outcomes.", body: "Intelligence becomes embedded into workflows, products, and operations.", icon: "gear" as VentureIcon },
+] as const;
+
+export const industriesSection = {
+  label: "BUILT FOR REAL-WORLD OPERATIONS",
+  heading: "Across key industries.",
+  sub: "Our solutions are designed for complex, high-impact environments where operational efficiency and real-world outcomes matter.",
+  items: [
+    { title: "Data Centers", d: "Cooling, energy, operations", icon: "server" as VentureIcon },
+    { title: "Energy", d: "Generation, distribution", icon: "waveform" as VentureIcon },
+    { title: "Manufacturing", d: "Production, assets, quality", icon: "factory" as VentureIcon },
+    { title: "Mining", d: "Assets, fleet, operations", icon: "mountain" as VentureIcon },
+  ],
+} as const;
 
 export const ventures = [
   {
@@ -108,6 +129,8 @@ export const ventures = [
     chips: ["AI Engineering", "Digital Twin", "Industrial AI"],
     hero: "/images/vistara/hero.jpg",
     icon: "chip" as VentureIcon,
+    card: "dark" as const,
+    industries: true,
     feats: [
       { t: "AI", d: "Engineering at Scale", icon: "neural" as VentureIcon },
       { t: "Digital Twin", d: "Real-world Simulation", icon: "cube" as VentureIcon },
@@ -124,13 +147,16 @@ export const ventures = [
       { t: "Industrial AI", d: "Operational intelligence for industry and infrastructure.", img: "/images/vistara/f-5.jpg" },
       { t: "Agentic Systems", d: "Intelligent agents for enterprise workflows and decision support.", img: "/images/vistara/f-6.jpg" },
     ],
+    fwParagraph: "From data to real-world impact. Our framework turns complex information into intelligent decisions and measurable outcomes.",
+    fwTags: null,
+    fwImages: null,
     ctaText: "Let's explore how AI, digital twins, and intelligent systems can create real value for your organization.",
     ctaItems: [
       { t: "Discuss your challenge", d: "15–30 minute conversation", icon: "chat" as VentureIcon },
       { t: "Explore opportunities", d: "Use cases, potential value, next steps", icon: "flask" as VentureIcon },
       { t: "Start a collaboration", d: "From discovery to real-world impact", icon: "doc" as VentureIcon },
     ],
-    related: ["ananta", "asthaloka"],
+    relatedWork: [1, 2],
   },
   {
     slug: "ananta",
@@ -141,6 +167,8 @@ export const ventures = [
     chips: ["AI Property Advisor", "Digital Twin", "CRM"],
     hero: "/images/ananta/hero.jpg",
     icon: "property" as VentureIcon,
+    card: "side" as const,
+    industries: false,
     feats: [
       { t: "Digital Twin", d: "Showcase", icon: "cube" as VentureIcon },
       { t: "AI Property", d: "Advisor", icon: "network" as VentureIcon },
@@ -157,6 +185,14 @@ export const ventures = [
       { t: "Sales Intelligence", d: "Data-driven insights to identify, qualify, and convert leads more effectively.", img: "/images/ananta/f-5.jpg" },
       { t: "Property Experience", d: "A seamless, integrated experience across the entire property journey.", img: "/images/ananta/f-6.jpg" },
     ],
+    fwParagraph: "From data to real-world outcomes. Our framework turns complex information into intelligent decisions and measurable impact.",
+    fwTags: [
+      ["Data Integration", "Market Insights", "Customer Behavior", "Property Data"],
+      ["3D Environment", "Scenario Planning", "Market Simulation", "Risk Analysis"],
+      ["AI Optimization", "Sales Strategy", "Resource Allocation", "Portfolio Planning"],
+      ["Integrated Systems", "Automated Workflows", "Real-time Insights", "Scalable Operations"],
+    ],
+    fwImages: ["/images/ananta/s-1.jpg", "/images/ananta/s-2.jpg", "/images/ananta/s-3.jpg", "/images/ananta/s-4.jpg"],
     ctaText: "Let's explore how AI, digital twins, and intelligent sales systems can create better property experiences and real business outcomes.",
     ctaItems: [
       { t: "Higher Conversion", d: "Turn interest into real opportunities.", icon: "bars" as VentureIcon },
@@ -164,7 +200,7 @@ export const ventures = [
       { t: "Smarter Decisions", d: "AI-driven insights for buyers and sales teams.", icon: "network" as VentureIcon },
       { t: "Global Opportunities", d: "From Indonesia. For the world.", icon: "globe" as VentureIcon },
     ],
-    related: ["vistara"],
+    relatedWork: [0],
   },
   {
     slug: "asthaloka",
@@ -175,6 +211,8 @@ export const ventures = [
     chips: ["Trade Intelligence", "Traceability", "ESG & Impact"],
     hero: "/images/asthaloka/hero.jpg",
     icon: "globe" as VentureIcon,
+    card: "dark" as const,
+    industries: false,
     feats: [
       { t: "Sustainable Trade", d: "Economic growth with real impact.", icon: "leaf" as VentureIcon },
       { t: "Global Network", d: "Connecting Indonesia to the world.", icon: "globe" as VentureIcon },
@@ -191,13 +229,21 @@ export const ventures = [
       { t: "Trade Finance", d: "Access to financing solutions, enabling smoother global transactions.", img: "/images/asthaloka/f-5.jpg" },
       { t: "ESG & Impact", d: "Traceable supply chains and measurable environmental and social impact.", img: "/images/asthaloka/hero.jpg" },
     ],
+    fwParagraph: "From data to real-world impact. Our framework turns complex information into intelligent decisions and measurable outcomes.",
+    fwTags: [
+      ["Data Integration", "AI Insights"],
+      ["3D Modeling", "Scenario Planning"],
+      ["AI Optimization", "Predictive Analytics"],
+      ["Automated Workflows", "Real-time Operations"],
+    ],
+    fwImages: ["/images/asthaloka/s-1.jpg", "/images/asthaloka/s-2.jpg", "/images/asthaloka/s-3.jpg", "/images/asthaloka/s-4.jpg"],
     ctaText: "Let's explore how trade intelligence, verification, and trade finance can build trusted and sustainable supply chains.",
     ctaItems: [
       { t: "Sustainable Trade", d: "Economic growth with real impact.", icon: "leaf" as VentureIcon },
       { t: "Global Network", d: "Connecting Indonesia to the world.", icon: "globe" as VentureIcon },
       { t: "Trusted Ecosystem", d: "From source to market.", icon: "shield" as VentureIcon },
     ],
-    related: ["talentika"],
+    relatedWork: [3],
   },
   {
     slug: "talentika",
@@ -208,6 +254,8 @@ export const ventures = [
     chips: ["AI Career Intelligence", "Talent Discovery", "Learning"],
     hero: "/images/talentika/hero.jpg",
     icon: "network" as VentureIcon,
+    card: "side" as const,
+    industries: false,
     feats: [
       { t: "Students & Young Talents", d: "Discover potential", icon: "network" as VentureIcon },
       { t: "Schools & Universities", d: "Future-ready programs", icon: "book" as VentureIcon },
@@ -223,13 +271,21 @@ export const ventures = [
       { t: "Opportunity Matching", d: "Connect to internships, scholarships, jobs, and global programs.", img: "/images/talentika/f-4.jpg" },
       { t: "Career Analytics", d: "Track progress and measure career readiness with powerful analytics.", img: "/images/talentika/f-5.jpg" },
     ],
+    fwParagraph: "From data to real-world impact. Talentika turns complex information into personalized learning and opportunity outcomes.",
+    fwTags: [
+      ["Student Data", "Interests", "Skills & Behavior", "Global Trends"],
+      ["Career Pathways", "Scenario Planning", "Skill Development", "Opportunity Mapping"],
+      ["AI Recommendation", "Skill Matching", "Opportunity Ranking", "Career Planning"],
+      ["Learning Platform", "Opportunity Portal", "Industry Partnerships", "Impact Tracking"],
+    ],
+    fwImages: ["/images/talentika/s-1.jpg", "/images/talentika/s-2.jpg", "/images/talentika/s-3.jpg", "/images/talentika/s-4.jpg"],
     ctaText: "Let's explore how AI, personalized learning, and global opportunities can empower students, schools, and organizations to create real impact.",
     ctaItems: [
       { t: "Future-Ready Students", d: "Discover potential and build real skills", icon: "network" as VentureIcon },
       { t: "Stronger Institutions", d: "Future-ready programs and global network", icon: "property" as VentureIcon },
       { t: "Global Opportunities", d: "Study, work, and collaborate worldwide", icon: "globe" as VentureIcon },
     ],
-    related: [] as string[],
+    relatedWork: [] as number[],
   },
 ] as const;
 
