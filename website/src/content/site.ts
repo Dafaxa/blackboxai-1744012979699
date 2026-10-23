@@ -27,6 +27,7 @@ export const site = {
 } as const;
 
 export const nav = [
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Ventures", href: "/ventures" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -236,6 +237,82 @@ export const venturesPage = {
   label: "VENTURES",
   heading: "Four ventures, one mission.",
   sub: "Four technology businesses building AI-powered infrastructure for property, industry, trade, and talent.",
+} as const;
+
+export const portfolioPage = {
+  label: "PORTFOLIO",
+  heading: "Turning ideas into systems.",
+  sub: "My work spans strategy, product development, technology architecture, experience design, and venture building.",
+} as const;
+
+export const work = {
+  label: "SELECTED WORK",
+  heading: "Intelligence in action.",
+  sub: "Real-world applications of our AI, digital twin, and optimization framework across industries and operational environments.",
+  items: [
+    {
+      title: "AI Property Sales Platform",
+      intro: "A digital sales infrastructure connecting:",
+      image: "/images/ananta/f-5.jpg",
+      flow: [
+        { label: "Masterplan", desc: "Project overview and planning." },
+        { label: "Digital Twin", desc: "3D interactive environment." },
+        { label: "Immersive Experience", desc: "Virtual tours and visualization." },
+        { label: "AI Property Advisor", desc: "Personalized recommendations." },
+        { label: "Lead Capture", desc: "Qualified opportunities." },
+        { label: "CRM", desc: "Customer management." },
+        { label: "Sales Analytics", desc: "Insights and performance." },
+      ],
+      footLabel: "Objective:",
+      foot: "turn property marketing from a static presentation into an intelligent sales system.",
+    },
+    {
+      title: "AI Energy Optimization",
+      intro: "An intelligent energy management concept combining:",
+      image: "/images/work-energy.jpg",
+      flow: [
+        { label: "BMS Data", join: "" },
+        { label: "Occupancy", join: "+" },
+        { label: "Weather", join: "+" },
+        { label: "Electricity", join: "+" },
+        { label: "Equipment", join: "+" },
+        { label: "Digital Twin", join: "→" },
+        { label: "AI Prediction", join: "→" },
+        { label: "Optimization", join: "→" },
+        { label: "Energy Savings", join: "→" },
+      ],
+      footLabel: "Objective:",
+      foot: "transform operational data into measurable energy and cost reduction.",
+    },
+    {
+      title: "Industrial Digital Twin",
+      intro: "A technology architecture for complex physical environments.",
+      image: "/images/work-industrial.jpg",
+      flow: [
+        { label: "Physical Asset" },
+        { label: "Digital Twin" },
+        { label: "Simulation" },
+        { label: "AI Optimization" },
+      ],
+      footLabel: "Designed for:",
+      foot: "Manufacturing · Mining · Energy · Data Centers · Ports · Industrial Estates",
+    },
+    {
+      title: "Sustainable Trade Infrastructure",
+      intro: "A connected trade ecosystem:",
+      image: "/images/asthaloka/hero.jpg",
+      flow: [
+        { label: "DISCOVER", desc: "Find verified suppliers, products, and opportunities." },
+        { label: "VERIFY", desc: "Validate supplier, product, and sustainability data." },
+        { label: "TRADE", desc: "Enable secure and transparent transactions." },
+        { label: "FINANCE", desc: "Access trade financing and investment." },
+        { label: "DELIVER", desc: "Track and manage logistics end-to-end." },
+        { label: "MEASURE", desc: "Measure ESG impact and create value." },
+      ],
+      footLabel: "",
+      foot: "Designed to reduce friction and increase trust across global sustainable commerce.",
+    },
+  ],
 } as const;
 
 export const credibility = {

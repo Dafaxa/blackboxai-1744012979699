@@ -8,7 +8,11 @@ import { openBooking } from "./BookingModal";
 
 /** Routes whose first section is a dark-navy hero get a dark header to match. */
 function isDarkRoute(pathname: string) {
-  return pathname === "/contact" || /^\/ventures\/[^/]+$/.test(pathname);
+  return (
+    pathname === "/contact" ||
+    pathname === "/portfolio" ||
+    /^\/ventures\/[^/]+$/.test(pathname)
+  );
 }
 
 /**
