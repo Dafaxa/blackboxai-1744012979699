@@ -27,6 +27,7 @@ export const site = {
 } as const;
 
 export const nav = [
+  { label: "Solutions", href: "/solutions" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Ventures", href: "/ventures" },
   { label: "About", href: "/about" },
@@ -75,15 +76,23 @@ export const framework = {
 export const areas = {
   label: "AREAS OF INTEREST",
   heading: "Where I see the next generation of technology businesses.",
+  headingA: "Where I see the next generation of ",
+  headingB: "technology businesses.",
   sub: "Building solutions at the intersection of real-world problems, emerging technologies, and global opportunities.",
   items: [
-    { title: "AI", icon: "neural", list: ["Agentic AI", "AI Engineering", "Enterprise AI", "Intelligent Automation"], relatedSlug: "vistara" },
-    { title: "Digital Twins", icon: "cube", list: ["Simulation", "Spatial Computing", "3D Systems", "Real-Time Digital Models"], relatedSlug: "vistara" },
-    { title: "Energy", icon: "waveform", list: ["Building Energy", "Data Centers", "Industrial Optimization", "Battery & BESS Intelligence"], relatedSlug: "vistara" },
-    { title: "Industry", icon: "factory", list: ["Manufacturing", "Mining", "Infrastructure", "Logistics", "Industrial Operations"], relatedSlug: "vistara" },
-    { title: "Property", icon: "property", list: ["Digital Sales", "Customer Experience", "Property Intelligence", "Immersive Technology"], relatedSlug: "ananta" },
-    { title: "Trade", icon: "globe", list: ["Global Commerce", "Verification", "Traceability", "Trade Finance", "Sustainable Supply Chains"], relatedSlug: "asthaloka" },
+    { title: "AI", icon: "neural", list: ["Agentic AI", "AI Engineering", "Enterprise AI", "Intelligent Automation"], relatedSlug: "vistara", img: "/images/area-1.jpg" },
+    { title: "Digital Twins", icon: "cube", list: ["Simulation", "Spatial Computing", "3D Systems", "Real-Time Digital Models"], relatedSlug: "vistara", img: "/images/area-2.jpg" },
+    { title: "Energy", icon: "waveform", list: ["Building Energy", "Data Centers", "Industrial Optimization", "Battery & BESS Intelligence"], relatedSlug: "vistara", img: "/images/area-3.jpg" },
+    { title: "Industry", icon: "factory", list: ["Manufacturing", "Mining", "Infrastructure", "Logistics", "Industrial Operations"], relatedSlug: "vistara", img: "/images/area-4.jpg" },
+    { title: "Property", icon: "property", list: ["Digital Sales", "Customer Experience", "Property Intelligence", "Immersive Technology"], relatedSlug: "ananta", img: "/images/area-5.jpg" },
+    { title: "Trade", icon: "globe", list: ["Global Commerce", "Verification", "Traceability", "Trade Finance", "Sustainable Supply Chains"], relatedSlug: "asthaloka", img: "/images/area-6.jpg" },
   ],
+} as const;
+
+export const solutionsPage = {
+  label: "SOLUTIONS",
+  heading: "End-to-end AI infrastructure for real-world applications.",
+  sub: "Applying AI, digital twins, and intelligent automation to the industries that power the real economy.",
 } as const;
 
 export const globalOutlook = {

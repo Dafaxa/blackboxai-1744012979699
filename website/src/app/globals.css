@@ -79,6 +79,25 @@ h3 {
   }
 }
 
+/* Framework step-picker: auto-advancing progress bar on the active step */
+@keyframes fill-bar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.step-bar-active {
+  animation: fill-bar 3.2s linear forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .step-bar-active {
+    animation: none;
+    width: 100%;
+  }
+}
+
 /* Soft ambient gradient blob for the dark-navy hero */
 .hero-glow {
   background: radial-gradient(

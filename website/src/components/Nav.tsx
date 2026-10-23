@@ -11,6 +11,7 @@ function isDarkRoute(pathname: string) {
   return (
     pathname === "/contact" ||
     pathname === "/portfolio" ||
+    pathname === "/solutions" ||
     /^\/ventures\/[^/]+$/.test(pathname)
   );
 }
